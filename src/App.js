@@ -1,32 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
-import Content from './Content';
-import Total from './Total';
+import Statistics from './Statistics';
+import Button from './Button';
 
 const App = () => {
-  const course = {
-    name: 'Half Stack App Development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
+  const heading = 'Unicafe Feedback';
+  const [ good, setGood ] = useState(0);
+  const [ bad, setBad ] = useState(0);
+  const [ neutral, setNeutral ] = useState(0);
+
+  const goodFeedback = () => setGood(good + 1);
+  const badFeedback = () => setBad(bad + 1);
+  const neutralFeedback = () => setNeutral(neutral + 1);
 
   return (
     <>
-      <Header course={course} />
-      <Content course={course} />
-      <Total course={course} /> 
+      <Header heading={heading} />
+      <Button onClick={goodFeedback} text='good' />
+      <Button onClick={badFeedback} text='bad' />
+      <Button onClick={neutralFeedback} text='neutral' />
+      <Statistics good={good} bad={bad} neutral={neutral} />
     </>
   )
 }
