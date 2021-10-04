@@ -13,13 +13,23 @@ const App = () => {
   const badFeedback = () => setBad(bad + 1);
   const neutralFeedback = () => setNeutral(neutral + 1);
 
+  const totalFeedback = good + bad + neutral;
+
   return (
     <>
       <Header heading={heading} />
+    
       <Button onClick={goodFeedback} text='good' />
       <Button onClick={badFeedback} text='bad' />
       <Button onClick={neutralFeedback} text='neutral' />
-      <Statistics good={good} bad={bad} neutral={neutral} />
+
+      <h2>Statistics</h2>
+      <Statistics text="good" value={good} />
+      <Statistics text="bad" value={bad} />
+      <Statistics text="neutral" value={neutral} />
+      <Statistics text="total" value={good + bad + neutral} />
+      <Statistics text="average" value={(good - bad) / totalFeedback} />
+      <Statistics text="average" value={(good / totalFeedback) * 100} />
     </>
   )
 }

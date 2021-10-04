@@ -1,12 +1,9 @@
 import React from "react";
 
-const Statistics = ({ good, bad, neutral }) => {
+const Statistics = ({ text, value }) => {
     return (
         <>
-            <h2>Statistics</h2>
-            <p>Good {good}</p>
-            <p>Bad {bad}</p>
-            <p>Neutral {neutral}</p>
+            <p>{text} {value}</p>
         </>
     )
 };
