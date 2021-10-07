@@ -16,7 +16,14 @@ const App = () => {
       name: newName
     };
 
-    setPersons(persons.concat(newPerson));
+    const hasVal = persons.some(person => person.name === newPerson.name);
+
+    if (hasVal) {
+      alert(`you already added ${newName}!`)
+    } else {
+      setPersons(persons.concat(newPerson));
+    }
+
     setNewName('');
   };
 
