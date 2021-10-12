@@ -30,7 +30,6 @@ const App = () => {
       : notes.filter(note => note.important === true);
 
   useEffect(() => {
-    console.log('useEffect here');
     axios
       .get('http://localhost:3001/notes')
       .then(response => {
@@ -38,7 +37,6 @@ const App = () => {
         setNotes(response.data);
       });
   }, []);
-  console.log('render', notes.length, 'notes');
 
   return (
     <div>
