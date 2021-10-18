@@ -18,9 +18,9 @@ const App = () => {
     };
 
     noteService
-      .create('http://localhost:3001/notes', noteObject)
-      .then(res => {
-        setNotes(notes.concat(noteObject));
+      .create(noteObject)
+      .then(returnedNote => {
+        setNotes(notes.concat(returnedNote));
         setNewNote('');
       });
   };
@@ -39,16 +39,16 @@ const App = () => {
 
     noteService
       .update(id, changedNote)
-      .then(res => {
-        setNotes(notes.map(note => note.id !== id ? note : res.data))
+      .then(returnedNote => {
+        setNotes(notes.map(note => note.id !== id ? note : returnedNote))
       });
   };
 
   useEffect(() => {
     noteService
       .getAll()
-      .then(response => {
-        setNotes(response.data);
+      .then(initialNotes => {
+        setNotes(initialNotes);
       });
   }, []);
 

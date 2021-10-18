@@ -21,14 +21,26 @@
     {
       "content": "test me",
       "date": "2021-10-18T13:14:19.378Z",
-      "important": false,
+      "important": true,
       "id": 4
     },
     {
       "content": "New note",
       "date": "2021-10-18T13:15:18.257Z",
-      "important": false,
+      "important": true,
       "id": 5
+    },
+    {
+      "content": "latest note finally",
+      "date": "2021-10-18T13:45:40.550Z",
+      "important": true,
+      "id": 6
+    },
+    {
+      "content": "test me",
+      "date": "2021-10-18T13:45:45.801Z",
+      "important": false,
+      "id": 7
     }
   ]
 }
