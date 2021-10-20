@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import personService from '../src/services/persons';
 
 const App = (props) => {
   const [persons, setPersons] = useState([])
@@ -43,10 +43,10 @@ const App = (props) => {
     : persons.filter(person => person.name.toLowerCase().includes(search.toLowerCase()));
 
   useEffect(() => {
-    axios
-      .get('http://localhost:3001/persons')
-      .then(response => {
-        setPersons(response.data);
+    personService
+      .getAll()
+      .then(allPersons => {
+        setPersons(allPersons);
       })
   }, [])
 
