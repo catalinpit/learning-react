@@ -20,10 +20,15 @@ const App = (props) => {
     if (hasVal) {
       alert(`you already added ${newName}!`)
     } else {
-      setPersons(persons.concat(newPerson));
-    }
+      personService
+        .addPerson(newPerson)
+        .then(person => {
+          setPersons(persons.concat(person));
+        });
+    };
 
     setNewName('');
+    setNewNumber('');
   };
 
   const handleNameChange = (e) => {
