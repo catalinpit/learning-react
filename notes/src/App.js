@@ -10,6 +10,7 @@ const App = () => {
   const [newNote, setNewNote] = useState('');
   const [showAll, setShowAll] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const addNote = (e) => {
     e.preventDefault();
@@ -26,6 +27,10 @@ const App = () => {
       .then(returnedNote => {
         setNotes(notes.concat(returnedNote));
         setNewNote('');
+        setSuccessMessage(`Note '${returnedNote.content}' added!`);
+        setTimeout(() => {
+          setSuccessMessage(null);
+        }, 5500);
       });
   };
 
@@ -68,7 +73,8 @@ const App = () => {
   return (
     <div>
       <h1>Notes</h1>
-      { errorMessage && <Notification message={errorMessage} />}
+      { errorMessage && <Notification className={"error"} message={errorMessage} />}
+      { successMessage && <Notification className={"success"} message={successMessage} />}
       <div>
           <button onClick={() => setShowAll(!showAll)}>
               show {showAll ? 'important' : 'all'}

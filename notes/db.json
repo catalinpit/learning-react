@@ -41,6 +41,24 @@
       "date": "2021-10-18T13:45:45.801Z",
       "important": false,
       "id": 7
+    },
+    {
+      "content": "test note",
+      "date": "2021-10-23T06:27:57.471Z",
+      "important": true,
+      "id": 8
+    },
+    {
+      "content": "another test",
+      "date": "2021-10-23T06:29:03.826Z",
+      "important": true,
+      "id": 9
+    },
+    {
+      "content": "ka",
+      "date": "2021-10-23T06:32:00.018Z",
+      "important": false,
+      "id": 10
     }
   ]
 }
