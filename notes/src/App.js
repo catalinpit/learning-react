@@ -8,7 +8,7 @@ const App = () => {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
   const [showAll, setShowAll] = useState(true);
-  const [errorMessage, setErrorMessage] = useState('some error happened!');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const addNote = (e) => {
     e.preventDefault();
@@ -49,6 +49,9 @@ const App = () => {
         setErrorMessage(
           `the note '${note.content}' was already deleted from the server`
         )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000);
         setNotes(notes.filter(note => note.id !== id))
       });
   };
@@ -64,7 +67,7 @@ const App = () => {
   return (
     <div>
       <h1>Notes</h1>
-      <Notification message={errorMessage} />
+      { errorMessage && <Notification message={errorMessage} />}
       <div>
           <button onClick={() => setShowAll(!showAll)}>
               show {showAll ? 'important' : 'all'}
